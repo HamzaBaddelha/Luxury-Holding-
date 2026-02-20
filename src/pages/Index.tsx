@@ -264,7 +264,7 @@ const CategoriesSection = () =>
         </p>
           <div className="flex items-center gap-4 text-sm">
             <span className="px-3 py-1 rounded-full" style={{ background: "hsl(45 85% 58% / 0.15)", color: "hsl(45,85%,70%)" }}>عائد يصل لـ ١٨٪</span>
-            <span className="px-3 py-1 rounded-full" style={{ background: "hsl(45 85% 58% / 0.15)", color: "hsl(45,85%,70%)" }}>فترة ٦-٢٤ شهر</span>
+            
           </div>
           <div className="absolute top-6 left-6 w-20 h-20 rounded-full opacity-20 group-hover:opacity-30 transition-opacity" style={{ background: "radial-gradient(circle, hsl(45,85%,58%), transparent)" }} />
         </div>
