@@ -61,9 +61,9 @@ const NavBar = () =>
       <span className="text-2xl md:text-3xl font-black text-gold tracking-wide" style={{ color: "hsl(45,85%,58%)" }}>
         مولها
       </span>
-      <span className="hidden md:block text-xs text-[hsl(45_85%_58%/0.6)] border border-[hsl(45_85%_58%/0.3)] px-2 py-0.5 rounded-full">
-        منصة التمويل الجماعي
-      </span>
+      <span className="hidden md:block text-xs text-[hsl(45_85%_58%/0.6)] border border-[hsl(45_85%_58%/0.3)] px-2 py-0.5 rounded-full">منصة التمويل 
+
+    </span>
     </div>
     <div className="hidden md:flex items-center gap-8 text-sm text-[hsl(220_10%_80%)]">
       <a href="#projects" className="hover:text-[hsl(45,85%,58%)] transition-colors">المشاريع</a>
@@ -87,8 +87,8 @@ const HeroSection = () =>
     <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full opacity-10" style={{ background: "radial-gradient(circle, hsl(45 85% 58%), transparent 70%)" }} />
 
     <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 border" style={{ background: "hsl(45 85% 58% / 0.15)", borderColor: "hsl(45 85% 58% / 0.4)", color: "hsl(45,85%,72%)" }}>
-        <Star className="w-4 h-4 fill-current" />
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6 border" style={{ background: "hsl(45 85% 58% / 0.15)", borderColor: "hsl(45 85% 58% / 0.4)", color: "hsl(45,85%,72%)" }}>منصة التمويل  الأولى للسيارات والعقارات
+      <Star className="w-4 h-4 fill-current" />
         منصة التمويل الجماعي الأولى للسيارات والعقارات
       </div>
 
