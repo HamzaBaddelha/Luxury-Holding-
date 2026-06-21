@@ -1,19 +1,21 @@
-import hero from "/images/mockups/hero-vision-2030.jpg";
-import lux from "/images/mockups/luxury-vehicles.jpg";
-import vlux from "/images/mockups/v-lux-accessories.jpg";
-import bad from "/images/mockups/baddelha-tradein.jpg";
-import swap from "/images/mockups/swap-car.jpg";
-import showroom from "/images/mockups/showroom.jpg";
-import skyline from "/images/mockups/riyadh-skyline.jpg";
-
-export const images = { hero, lux, vlux, bad, swap, showroom, skyline };
+// Public asset paths — replace these mockup images with the final assets when ready.
+const base = "/images/mockups";
+export const images = {
+  hero: `${base}/hero-vision-2030.jpg`,
+  lux: `${base}/luxury-vehicles.jpg`,
+  vlux: `${base}/v-lux-accessories.jpg`,
+  bad: `${base}/baddelha-tradein.jpg`,
+  swap: `${base}/swap-car.jpg`,
+  showroom: `${base}/showroom.jpg`,
+  skyline: `${base}/riyadh-skyline.jpg`,
+};
 
 export const companies = [
-  { id: "01", name: "Luxury Vehicles", tag: "Automotive Retail", desc: "A curated showroom of premium and bespoke vehicles, redefining the driving experience in the Kingdom.", image: lux },
-  { id: "02", name: "V-LUX Accessories", tag: "Customization", desc: "High-end customization, styling and craftsmanship for the most discerning automotive collectors.", image: vlux },
-  { id: "03", name: "Baddelha", tag: "Trade-In Service", desc: "Free valuation, expert inspection, fair pricing — selling your car, simplified.", image: bad },
-  { id: "04", name: "Swap Car", tag: "Mobility", desc: "A seamless car exchange platform designed for the next generation of owners.", image: swap },
-  { id: "05", name: "Future Mobility", tag: "2030 & Beyond", desc: "Pioneering tomorrow's mobility ecosystem, aligned with Vision 2030.", image: showroom },
+  { id: "01", name: "Luxury Vehicles", tag: "Automotive Retail", desc: "A curated showroom of premium and bespoke vehicles, redefining the driving experience in the Kingdom.", image: images.lux },
+  { id: "02", name: "V-LUX Accessories", tag: "Customization", desc: "High-end customization, styling and craftsmanship for the most discerning automotive collectors.", image: images.vlux },
+  { id: "03", name: "Baddelha", tag: "Trade-In Service", desc: "Free valuation, expert inspection, fair pricing — selling your car, simplified.", image: images.bad },
+  { id: "04", name: "Swap Car", tag: "Mobility", desc: "A seamless car exchange platform designed for the next generation of owners.", image: images.swap },
+  { id: "05", name: "Future Mobility", tag: "2030 & Beyond", desc: "Pioneering tomorrow's mobility ecosystem, aligned with Vision 2030.", image: images.showroom },
 ];
 
 export const stats = [
