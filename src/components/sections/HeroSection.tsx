@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLocale } from "@/RTL/LocaleProvider";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
@@ -15,6 +16,7 @@ export const HeroSection = () => {
   const bigRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const scrollIndRef = useRef<HTMLDivElement>(null);
+  const { content } = useLocale();
 
   useGSAP(() => {
     // image scale in
@@ -63,7 +65,7 @@ export const HeroSection = () => {
         <img
           ref={imgRef}
           src={images.hero}
-          alt="Riyadh skyline — Luxury Holding"
+          alt={content.hero.imageAlt}
           className="absolute inset-0 w-full h-full object-cover will-change-transform"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-luxe-bg/85 via-luxe-bg/55 to-luxe-bg" />
@@ -80,7 +82,7 @@ export const HeroSection = () => {
         <div className="hero-content max-w-4xl">
           <div className="overflow-hidden mb-8">
             <SplitTextReveal as="span" trigger={false} delay={2} className="font-mono-luxe text-luxe-accent block">
-              Luxury Holding — Riyadh, Saudi Arabia
+              {content.hero.eyebrow}
             </SplitTextReveal>
           </div>
 
@@ -91,22 +93,22 @@ export const HeroSection = () => {
             stagger={0.04}
             className="font-display text-luxe-fg text-[10vw] md:text-[6.5vw] leading-[0.95] tracking-tight"
           >
-            Building a premium automotive ecosystem.
+            {content.hero.title}
           </SplitTextReveal>
 
           <div className="mt-10 max-w-xl overflow-hidden">
             <SplitTextReveal as="p" trigger={false} delay={2.6} stagger={0.015} className="text-luxe-silver/80 text-lg leading-relaxed">
-              Luxury Holding unites leading automotive companies, premium services and innovative customer experiences — aligned with Saudi Vision 2030.
+              {content.hero.description}
             </SplitTextReveal>
           </div>
 
           <div ref={ctaRef} className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-5">
             <MagneticButton className="group inline-flex items-center gap-3 px-7 py-4 bg-luxe-fg text-luxe-bg font-mono-luxe">
-              Explore the Group
+              {content.hero.primaryCta}
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </MagneticButton>
             <MagneticButton className="inline-flex items-center gap-3 px-7 py-4 border border-luxe-fg/20 text-luxe-fg font-mono-luxe hover:border-luxe-accent">
-              Our Companies
+              {content.hero.secondaryCta}
             </MagneticButton>
           </div>
         </div>
@@ -114,7 +116,7 @@ export const HeroSection = () => {
 
       {/* Scroll indicator */}
       <div ref={scrollIndRef} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
-        <span className="font-mono-luxe text-luxe-silver/60">Scroll</span>
+        <span className="font-mono-luxe text-luxe-silver/60">{content.hero.scrollLabel}</span>
         <ArrowDown className="w-4 h-4 text-luxe-accent" />
       </div>
     </section>

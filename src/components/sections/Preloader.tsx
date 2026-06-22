@@ -35,8 +35,12 @@ export const Preloader = ({ onDone }: { onDone?: () => void }) => {
 
   return (
     <div ref={root} className="fixed inset-0 z-[200] bg-luxe-bg flex flex-col items-center justify-center">
-      <div ref={monoRef} className="font-display text-luxe-fg text-7xl md:text-9xl tracking-tight">
-        L<span className="text-luxe-accent">H</span>
+      <div ref={monoRef}>
+        <img
+          src="/images/Holding-logo.png"
+          alt="Holding logo"
+          className="w-40 md:w-56 h-auto"
+        />
       </div>
       <div className="mt-12 w-48 h-px bg-luxe-fg/10 overflow-hidden">
         <div ref={barRef} className="h-px bg-luxe-accent origin-left" style={{ transform: "scaleX(0)" }} />

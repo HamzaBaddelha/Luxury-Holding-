@@ -1,46 +1,68 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
-import { testimonials } from "@/data/landing";
-
-const rows = [
-  [...testimonials, ...testimonials],
-  [...testimonials.slice().reverse(), ...testimonials.slice().reverse()],
-];
+import { useLocale } from "@/RTL/LocaleProvider";
 
 export const TestimonialsSection = () => {
   const root = useRef<HTMLElement>(null);
+  const { content, isArabic } = useLocale();
+  const rows = useMemo(() => {
+    const items = content.testimonials.items;
+    return [
+      [...items, ...items],
+      [...items.slice().reverse(), ...items.slice().reverse()],
+    ];
+  }, [content.testimonials.items]);
 
   useEffect(() => {
-    const rowsEls = root.current!.querySelectorAll<HTMLDivElement>(".marq-row");
+    if (!root.current) return;
+
+    const rowsEls = root.current.querySelectorAll<HTMLDivElement>(".marq-row");
     const tweens: gsap.core.Tween[] = [];
+    const cleanups: Array<() => void> = [];
+
     rowsEls.forEach((row, i) => {
       const w = row.scrollWidth / 2;
-      const tw = gsap.to(row, {
-        x: i === 0 ? -w : 0,
+      const startX = isArabic ? (i === 0 ? -w : 0) : (i === 0 ? 0 : -w);
+      const endX = isArabic ? (i === 0 ? 0 : -w) : (i === 0 ? -w : 0);
+
+      gsap.set(row, { x: startX });
+
+      const tween = gsap.to(row, {
+        x: endX,
         duration: 60,
         ease: "none",
         repeat: -1,
-        modifiers: { x: gsap.utils.unitize((x) => parseFloat(x) % -w) },
+        modifiers: {
+          x: gsap.utils.unitize((x) => {
+            const value = parseFloat(x);
+            return isArabic ? gsap.utils.wrap(-w, 0, value) : gsap.utils.wrap(-w, 0, value);
+          }),
+        },
       });
-      if (i === 1) {
-        gsap.set(row, { x: -w });
-        tw.kill();
-        tweens.push(gsap.to(row, { x: 0, duration: 60, ease: "none", repeat: -1 }));
-      } else {
-        tweens.push(tw);
-      }
 
-      row.addEventListener("mouseenter", () => tweens[i].pause());
-      row.addEventListener("mouseleave", () => tweens[i].resume());
+      tweens.push(tween);
+
+      const onEnter = () => tween.pause();
+      const onLeave = () => tween.resume();
+      row.addEventListener("mouseenter", onEnter);
+      row.addEventListener("mouseleave", onLeave);
+      cleanups.push(() => {
+        row.removeEventListener("mouseenter", onEnter);
+        row.removeEventListener("mouseleave", onLeave);
+      });
     });
-    return () => { tweens.forEach((t) => t.kill()); };
-  }, []);
+
+    return () => {
+      cleanups.forEach((cleanup) => cleanup());
+      tweens.forEach((tween) => tween.kill());
+    };
+  }, [isArabic, rows]);
 
   return (
     <section ref={root} className="relative bg-luxe-fg text-luxe-bg py-32 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16">
-        <span className="font-mono-luxe text-luxe-bg/50">[ 08 ] Clients</span>
-        <h2 className="mt-4 font-display text-[10vw] md:text-[5vw] leading-[0.95]">Trusted across the Kingdom.</h2>
+        <span className="font-mono-luxe text-luxe-bg/50">{content.testimonials.sectionLabel}</span>
+        <h2 className="mt-4 font-display text-[10vw] md:text-[5vw] leading-[0.95]">{content.testimonials.title}</h2>
       </div>
 
       <div className="space-y-6">

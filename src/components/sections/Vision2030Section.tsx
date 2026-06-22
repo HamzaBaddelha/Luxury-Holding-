@@ -2,13 +2,15 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { images, stats } from "@/data/landing";
+import { useLocale } from "@/RTL/LocaleProvider";
+import { images } from "@/data/landing";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export const Vision2030Section = () => {
   const root = useRef<HTMLElement>(null);
+  const { content } = useLocale();
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -36,25 +38,33 @@ export const Vision2030Section = () => {
     <section ref={root} id="vision" className="relative bg-luxe-bg" style={{ height: "250vh" }}>
       <div className="v2030-sticky h-screen w-full overflow-hidden relative noise-overlay">
         <div className="v2030-bg absolute inset-0 will-change-transform">
-          <img src={images.skyline} alt="Riyadh skyline" className="w-full h-full object-cover" loading="lazy" />
+          <img src={images.skyline} alt={content.vision.skylineAlt} className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-luxe-bg/70 via-luxe-bg/30 to-luxe-bg" />
         </div>
 
         <div className="v2030-big absolute -bottom-[10vw] left-0 right-0 text-center pointer-events-none select-none">
-          <span className="font-display text-luxe-fg/[0.08] text-[36vw] md:text-[24vw] leading-none whitespace-nowrap">VISION 2030</span>
+          <span className="font-display text-luxe-fg/[0.08] text-[36vw] md:text-[24vw] leading-none whitespace-nowrap">{content.vision.backgroundLabel}</span>
         </div>
 
         <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 h-full flex flex-col justify-center">
-          <span className="font-mono-luxe text-luxe-accent">[ 02 ] Aligned with the Kingdom</span>
-          <SplitTextReveal as="h2" className="mt-6 font-display text-luxe-fg text-[14vw] md:text-[8vw] leading-[0.9]">
-            Vision 2030.
-          </SplitTextReveal>
+          <span className="font-mono-luxe text-luxe-accent">{content.vision.sectionLabel}</span>
+          <div className="mt-6 flex flex-col md:flex-row md:items-end gap-6 md:gap-8">
+            <SplitTextReveal as="h2" className="font-display text-luxe-fg text-[14vw] md:text-[8vw] leading-[0.9]">
+              {content.vision.title}
+            </SplitTextReveal>
+            <img
+              src={images.visionLogo}
+              alt="Vision logo"
+              className="h-32 md:h-48 lg:h-56 xl:h-64 w-auto object-contain"
+              loading="lazy"
+            />
+          </div>
           <p className="v2030-copy mt-10 max-w-xl text-luxe-silver/80 text-lg leading-relaxed">
-            Driving the next era of Saudi mobility — through private sector growth, premium service standards, and innovation that places the Kingdom at the center of the global automotive map.
+            {content.vision.description}
           </p>
 
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl">
-            {stats.map((s) => (
+            {content.vision.stats.map((s) => (
               <div key={s.label} className="v2030-stat">
                 <div className="font-display text-luxe-accent text-4xl md:text-5xl">{s.value}</div>
                 <div className="mt-2 font-mono-luxe text-luxe-silver/70">{s.label}</div>

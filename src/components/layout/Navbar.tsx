@@ -1,20 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
+import { useLocale } from "@/RTL/LocaleProvider";
 import { MagneticButton } from "@/components/motion/MagneticButton";
-
-const links = [
-  { label: "Group", href: "#about" },
-  { label: "Vision", href: "#vision" },
-  { label: "Companies", href: "#companies" },
-  { label: "Showcase", href: "#showcase" },
-  { label: "Contact", href: "#contact" },
-];
 
 export const Navbar = () => {
   const nav = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { locale, setLocale, content } = useLocale();
+  const links = content.nav.links;
+
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
     gsap.fromTo(nav.current, { y: -40, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, delay: 1.8, ease: "expo.out" });
@@ -31,9 +30,12 @@ export const Navbar = () => {
         style={{ opacity: 0 }}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-          <a href="#" className="font-display text-2xl tracking-tight text-luxe-fg">
-            L<span className="text-luxe-accent">H</span>
-            <span className="ml-2 font-mono-luxe text-luxe-silver/60">Luxury Holding</span>
+          <a href="#" className="flex items-center">
+            <img
+              src="/images/3d-logo.png"
+              alt={content.nav.brandName}
+              className="h-20 md:h-24 w-auto"
+            />
           </a>
 
           <nav className="hidden lg:flex items-center gap-10">
@@ -45,11 +47,31 @@ export const Navbar = () => {
           </nav>
 
           <div className="flex items-center gap-4">
-            <span className="hidden md:inline font-mono-luxe text-luxe-silver/70">EN / <span className="text-luxe-fg/40">AR</span></span>
-            <MagneticButton className="hidden md:inline-flex items-center gap-3 px-5 py-3 border border-luxe-fg/15 text-luxe-fg font-mono-luxe hover:border-luxe-accent hover:text-luxe-accent transition-colors">
-              Book Consultation
+            <div className="hidden md:inline-flex items-center gap-2 font-mono-luxe text-sm">
+              <button
+                type="button"
+                onClick={() => setLocale("en")}
+                className={`transition-colors ${locale === "en" ? "text-luxe-fg" : "text-luxe-silver/50"}`}
+              >
+                {content.nav.languageLabels.en}
+              </button>
+              <span className="text-luxe-silver/40">/</span>
+              <button
+                type="button"
+                onClick={() => setLocale("ar")}
+                className={`transition-colors ${locale === "ar" ? "text-luxe-fg" : "text-luxe-silver/50"}`}
+              >
+                {content.nav.languageLabels.ar}
+              </button>
+            </div>
+            <MagneticButton
+              type="button"
+              onClick={scrollToContact}
+              className="hidden md:inline-flex items-center gap-3 px-5 py-3 border border-luxe-fg/15 text-luxe-fg font-mono-luxe hover:border-luxe-accent hover:text-luxe-accent transition-colors"
+            >
+              {content.nav.consultationCta}
             </MagneticButton>
-            <button className="lg:hidden text-luxe-fg p-2" onClick={() => setOpen(true)} aria-label="Open menu">
+            <button className="lg:hidden text-luxe-fg p-2" onClick={() => setOpen(true)} aria-label={content.nav.openMenuLabel}>
               <Menu className="w-6 h-6" />
             </button>
           </div>
@@ -63,7 +85,7 @@ export const Navbar = () => {
         <div className="h-full flex flex-col p-8">
           <div className="flex justify-between items-center">
             <span className="font-display text-2xl">L<span className="text-luxe-accent">H</span></span>
-            <button onClick={() => setOpen(false)} className="text-luxe-fg p-2" aria-label="Close menu"><X className="w-6 h-6" /></button>
+            <button onClick={() => setOpen(false)} className="text-luxe-fg p-2" aria-label={content.nav.closeMenuLabel}><X className="w-6 h-6" /></button>
           </div>
           <nav className="flex-1 flex flex-col justify-center gap-6">
             {links.map((l) => (
@@ -72,7 +94,7 @@ export const Navbar = () => {
               </a>
             ))}
           </nav>
-          <div className="font-mono-luxe text-luxe-silver/60">Riyadh · Saudi Arabia</div>
+          <div className="font-mono-luxe text-luxe-silver/60">{content.nav.mobileLocation}</div>
         </div>
       </div>
     </>

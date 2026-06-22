@@ -4,6 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Al Awwal Web";
+  src: url("/font-arab/WOFF-2-TT/Al-Awwal Web/Al-AwwalWeb-Regular.woff2") format("woff2"),
+       url("/font-arab/WOFF-TT/Al-Awwal Web/Al-AwwalWeb-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Al Awwal Web";
+  src: url("/font-arab/WOFF-2-TT/Al-Awwal Web/Al-AwwalWeb-Bold.woff2") format("woff2"),
+       url("/font-arab/WOFF-TT/Al-Awwal Web/Al-AwwalWeb-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Luxury Holding — design system */
 @layer base {
   :root {
@@ -58,6 +76,59 @@
   body {
     @apply bg-background text-foreground;
     overflow-x: hidden;
+  }
+
+  html[dir="rtl"] {
+    font-family: "Al Awwal Web", system-ui, sans-serif;
+  }
+
+  html[dir="rtl"] body {
+    font-size: 1.125rem;
+    line-height: 1.9;
+  }
+
+  html[dir="rtl"] main p,
+  html[dir="rtl"] main li,
+  html[dir="rtl"] main input,
+  html[dir="rtl"] main textarea,
+  html[dir="rtl"] main select {
+    font-size: 1.16em;
+    line-height: 2;
+  }
+
+  html[dir="rtl"] main .text-sm {
+    font-size: 1rem;
+  }
+
+  html[dir="rtl"] main .text-base {
+    font-size: 1.125rem;
+  }
+
+  html[dir="rtl"] main .text-lg {
+    font-size: 1.35rem;
+  }
+
+  html[dir="rtl"] main .text-xl {
+    font-size: 1.5rem;
+  }
+
+  html[dir="rtl"] main .font-display {
+    font-family: "Al Awwal Web", serif;
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  html[dir="rtl"] main .font-mono-luxe {
+    font-family: "Al Awwal Web", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+
+  html[dir="rtl"] main h1,
+  html[dir="rtl"] main h2,
+  html[dir="rtl"] main h3 {
+    line-height: 1.2;
   }
 
   html.lenis, html.lenis body { height: auto; }
