@@ -94,6 +94,23 @@ export const Navbar = () => {
               </a>
             ))}
           </nav>
+          <div className="mb-6 inline-flex items-center gap-2 font-mono-luxe text-sm">
+            <button
+              type="button"
+              onClick={() => setLocale("en")}
+              className={`transition-colors ${locale === "en" ? "text-luxe-fg" : "text-luxe-silver/50"}`}
+            >
+              {content.nav.languageLabels.en}
+            </button>
+            <span className="text-luxe-silver/40">/</span>
+            <button
+              type="button"
+              onClick={() => setLocale("ar")}
+              className={`transition-colors ${locale === "ar" ? "text-luxe-fg" : "text-luxe-silver/50"}`}
+            >
+              {content.nav.languageLabels.ar}
+            </button>
+          </div>
           <div className="font-mono-luxe text-luxe-silver/60">{content.nav.mobileLocation}</div>
         </div>
       </div>
