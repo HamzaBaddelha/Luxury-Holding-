@@ -35,8 +35,8 @@ export const Vision2030Section = () => {
   }, { scope: root });
 
   return (
-    <section ref={root} id="vision" className="relative bg-luxe-bg" style={{ height: "250vh" }}>
-      <div className="v2030-sticky h-screen w-full overflow-hidden relative noise-overlay">
+    <section ref={root} id="vision" className="relative bg-luxe-bg md:h-[250vh]">
+      <div className="v2030-sticky min-h-screen md:h-screen w-full overflow-hidden relative noise-overlay">
         <div className="v2030-bg absolute inset-0 will-change-transform">
           <img src={images.skyline} alt={content.vision.skylineAlt} className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-luxe-bg/70 via-luxe-bg/30 to-luxe-bg" />

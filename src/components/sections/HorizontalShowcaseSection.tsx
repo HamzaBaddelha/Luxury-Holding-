@@ -45,12 +45,12 @@ export const HorizontalShowcaseSection = () => {
         <h2 className="mt-4 font-display text-luxe-fg text-[10vw] md:text-[5vw] leading-[0.95]">{content.showcase.title}</h2>
       </div>
 
-      <div className="relative" style={{ perspective: "1200px" }}>
-        <div ref={track} className={`flex gap-8 md:gap-12 px-6 md:px-12 pb-32 will-change-transform ${isArabic ? "md:flex-row-reverse" : ""}`}>
+      <div className="relative md:[perspective:1200px]">
+        <div ref={track} className={`flex flex-col md:flex-row gap-8 md:gap-12 px-6 md:px-12 pb-32 will-change-transform ${isArabic ? "md:flex-row-reverse" : ""}`}>
           {content.showcase.cards.map((c, i) => (
             <article
               key={`${c.title}-${i}`}
-              className="relative shrink-0 w-[80vw] md:w-[40vw] aspect-[3/4] overflow-hidden bg-luxe-soft group"
+              className="relative shrink-0 w-full md:w-[40vw] aspect-[3/4] overflow-hidden bg-luxe-soft group"
               style={{ transform: `rotateY(${i % 2 === 0 ? -3 : 3}deg)` }}
             >
               <img src={cardImages[i]} alt={c.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
