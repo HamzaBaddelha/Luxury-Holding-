@@ -49,10 +49,20 @@ const locations: LocationItem[] = [
     y: 50,
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Al+Qadisiyah+Riyadh",
   },
+  {
+    id: 4,
+    name: "Luxury Holding - Ash Shifa",
+    city: "Riyadh",
+    area: "Ash Shifa",
+    description: "Southern Riyadh location extending the group's premium automotive presence.",
+    x: 38,
+    y: 76,
+    mapsUrl: "https://maps.app.goo.gl/qxKs6dyR5HULNGaZ9?g_st=aw",
+  },
 ];
 
-const routeStops = [0.08, 0.48, 0.82];
-const routePath = "M260 406 C 330 382 410 286 480 238 S 660 286 740 350";
+const routeStops = [0.08, 0.38, 0.66, 0.9];
+const routePath = "M260 406 C 330 382 410 286 480 238 S 660 286 740 350 S 540 520 380 532";
 
 export const LocationsMap = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -274,7 +284,7 @@ export const LocationsMap = () => {
             </div>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-3 md:gap-5">
+            <div className="mt-10 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-2 xl:grid-cols-4 md:gap-5">
               {locations.map((location, index) => (
                 <article
                   key={location.id}
