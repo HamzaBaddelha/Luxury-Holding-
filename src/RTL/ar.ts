@@ -11,7 +11,7 @@ export const ar: SiteCopy = {
       { label: "المجموعة", href: "#about" },
       { label: "الرؤية", href: "#vision" },
       { label: "الشركات", href: "#companies" },
-      { label: "المعرض", href: "#showcase" },
+      { label: "المواقع", href: "/locations" },
       { label: "تواصل", href: "#contact" },
     ],
     consultationCta: "احجز استشارة",
@@ -126,20 +126,46 @@ export const ar: SiteCopy = {
       { n: "04", t: "ضيافة استثنائية", d: "كل زيارة تُقدّم باهتمام وراحة وتميّز." },
     ],
   },
+  materaEvents: {
+    sectionLabel: "[ 07 ] Matera Events",
+    imageAlt: "Matera Events",
+    title: "فعاليات تُصمَّم بذوق فاخر",
+    description:
+      "تقدم Matera Events تجارب راقية في الضيافة وتنظيم الفعاليات في الرياض، تجمع بين الأناقة المستوحاة من الطابع الإيطالي، ودقة التخطيط، وجودة الخدمة، وحفاوة الضيافة للمناسبات corporate والخاصة.",
+    steps: [
+      { n: "01", t: "ضيافة الشركات", d: "قوائم طعام راقية وخدمة أنيقة للاجتماعات، الإطلاقات، المؤتمرات، واللقاءات التنفيذية." },
+      { n: "02", t: "تنسيق الفعاليات", d: "تجهيزات فاخرة تشمل الديكور، الإضاءة، الزهور، والهوية البصرية للمناسبة." },
+      { n: "03", t: "فرق ضيافة احترافية", d: "طاقم مدرّب لتقديم خدمة سلسة تراعي راحة الضيوف وأعلى معايير الذوق." },
+      { n: "04", t: "حلول متكاملة", d: "من الاستشارة إلى التنفيذ، نُدير كل تفصيل بوضوح ودقة وعناية." },
+    ],
+  },
   showcase: {
-    sectionLabel: "[ 07 ] المعرض",
+    sectionLabel: "[ 08 ] المعرض",
     title: "قطاعاتنا",
     cards: [
       { title: "العربات الفاخــرة", tag: "المعرض" },
       { title: "V-LUX Accessories", tag: "التخصيص" },
       { title: "بدلــها", tag: "الاستبدال" },
       { title: "Swap Car", tag: "التنقل" },
-      { title: "رؤية 2030", tag: "الانسجام" },
       { title: "العربات الفاخــرة", tag: "الرئيسي" },
     ],
   },
+  locationsPage: {
+    sectionLabel: "[ 01 ] المواقع",
+    eyebrow: " الرياض",
+    title: "مواقعنا",
+    subtitle: "نربط شبكتنا المتخصصة  عبر الرياض.",
+    mapTitle: "مسار راقٍ عبر العاصمة.",
+    description:
+      "استكشف حضور Luxury Holding ",
+    openMapsLabel: "افتح في خرائط جوجل",
+    cityLabel: "المدينة",
+    areaLabel: "المنطقة",
+    routeLabel: "ترتيب المسار",
+    ctaLabel: "تواصل مع الفريق",
+  },
   testimonials: {
-    sectionLabel: "[ 08 ] العملاء",
+    sectionLabel: "[ 09 ] العملاء",
     title: "ثقة تمتد عبر المملكة.",
     items: [
       {
@@ -185,7 +211,7 @@ export const ar: SiteCopy = {
     ],
   },
   contact: {
-    sectionLabel: "[ 09 ] تواصل معنا",
+    sectionLabel: "[ 10 ] تواصل معنا",
     title: "لنبنِ مستقبل الخدمات .",
     description: "للشراكات أو الإعلام أو الاستشارات، يرد فريقنا في الرياض خلال يوم عمل واحد.",
     companyImageAlt: "",

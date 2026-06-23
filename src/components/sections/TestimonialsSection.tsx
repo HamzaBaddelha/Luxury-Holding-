@@ -22,8 +22,8 @@ export const TestimonialsSection = () => {
 
     rowsEls.forEach((row, i) => {
       const w = row.scrollWidth / 2;
-      const startX = isArabic ? (i === 0 ? -w : 0) : (i === 0 ? 0 : -w);
-      const endX = isArabic ? (i === 0 ? 0 : -w) : (i === 0 ? -w : 0);
+      const startX = i === 0 ? 0 : -w;
+      const endX = i === 0 ? -w : 0;
 
       gsap.set(row, { x: startX });
 
@@ -35,7 +35,7 @@ export const TestimonialsSection = () => {
         modifiers: {
           x: gsap.utils.unitize((x) => {
             const value = parseFloat(x);
-            return isArabic ? gsap.utils.wrap(-w, 0, value) : gsap.utils.wrap(-w, 0, value);
+            return gsap.utils.wrap(-w, 0, value);
           }),
         },
       });
@@ -56,11 +56,11 @@ export const TestimonialsSection = () => {
       cleanups.forEach((cleanup) => cleanup());
       tweens.forEach((tween) => tween.kill());
     };
-  }, [isArabic, rows]);
+  }, [rows]);
 
   return (
     <section ref={root} className="relative bg-luxe-fg text-luxe-bg py-32 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16" dir={isArabic ? "rtl" : "ltr"}>
         <span className="font-mono-luxe text-luxe-bg/50">{content.testimonials.sectionLabel}</span>
         <h2 className="mt-4 font-display text-[10vw] md:text-[5vw] leading-[0.95]">{content.testimonials.title}</h2>
       </div>
@@ -68,14 +68,15 @@ export const TestimonialsSection = () => {
       <div className="space-y-6">
         {rows.map((row, i) => (
           <div key={i} className="overflow-hidden">
-            <div className="marq-row flex gap-6 will-change-transform">
+            <div className="marq-row flex gap-6 will-change-transform" dir="ltr">
               {row.map((t, j) => (
                 <article
                   key={`${i}-${j}`}
                   className="shrink-0 w-[320px] h-[180px] p-6 bg-luxe-bg text-luxe-fg flex flex-col justify-between"
+                  dir={isArabic ? "rtl" : "ltr"}
                 >
                   <p className="text-sm leading-relaxed line-clamp-4 text-luxe-silver">{t.text}</p>
-                  <div className="flex items-center justify-between">
+                  <div className={`flex items-center justify-between ${isArabic ? "flex-row-reverse" : ""}`}>
                     <span className="font-display text-lg">{t.name}</span>
                     <span className="font-mono-luxe text-luxe-accent">{t.company}</span>
                   </div>

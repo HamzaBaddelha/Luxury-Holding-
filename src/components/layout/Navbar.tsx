@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLocale } from "@/RTL/LocaleProvider";
 import { MagneticButton } from "@/components/motion/MagneticButton";
 
@@ -8,11 +9,33 @@ export const Navbar = () => {
   const nav = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const { locale, setLocale, content } = useLocale();
   const links = content.nav.links;
 
+  const handleNavigation = (href: string) => {
+    setOpen(false);
+
+    if (href.startsWith("#")) {
+      if (location.pathname === "/") {
+        document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        navigate(`/${href}`);
+      }
+      return;
+    }
+
+    navigate(href);
+  };
+
   const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location.pathname === "/") {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
+
+    navigate("/#contact");
   };
 
   useEffect(() => {
@@ -30,17 +53,25 @@ export const Navbar = () => {
         style={{ opacity: 0 }}
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
             <img
               src="/images/3d-logo.png"
               alt={content.nav.brandName}
               className="h-20 md:h-24 w-auto"
             />
-          </a>
+          </Link>
 
           <nav className="hidden lg:flex items-center gap-10">
             {links.map((l) => (
-              <a key={l.href} href={l.href} className="font-mono-luxe text-luxe-silver hover:text-luxe-fg transition-colors">
+              <a
+                key={l.href}
+                href={l.href.startsWith("#") && location.pathname !== "/" ? `/${l.href}` : l.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation(l.href);
+                }}
+                className="font-mono-luxe text-luxe-silver hover:text-luxe-fg transition-colors"
+              >
                 {l.label}
               </a>
             ))}
@@ -89,7 +120,15 @@ export const Navbar = () => {
           </div>
           <nav className="flex-1 flex flex-col justify-center gap-6">
             {links.map((l) => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="font-display text-5xl text-luxe-fg hover:text-luxe-accent transition-colors">
+              <a
+                key={l.href}
+                href={l.href.startsWith("#") && location.pathname !== "/" ? `/${l.href}` : l.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation(l.href);
+                }}
+                className="font-display text-5xl text-luxe-fg hover:text-luxe-accent transition-colors"
+              >
                 {l.label}
               </a>
             ))}

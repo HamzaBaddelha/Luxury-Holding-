@@ -9,7 +9,7 @@ export const en = {
       { label: "Group", href: "#about" },
       { label: "Vision", href: "#vision" },
       { label: "Companies", href: "#companies" },
-      { label: "Showcase", href: "#showcase" },
+      { label: "Locations", href: "/locations" },
       { label: "Contact", href: "#contact" },
     ],
     consultationCta: "Book Consultation",
@@ -124,20 +124,46 @@ export const en = {
       { n: "04", t: "Exceptional Hospitality", d: "Every visit is served with attention, comfort, and distinction." },
     ],
   },
+  materaEvents: {
+    sectionLabel: "[ 07 ] Matera Events",
+    imageAlt: "Matera Events",
+    title: "Events, beautifully curated.",
+    description:
+      "Matera Events creates refined catering and event experiences in Riyadh, blending Italian-inspired elegance with precise planning, polished service, and warm hospitality for corporate and private occasions.",
+    steps: [
+      { n: "01", t: "Corporate Catering", d: "Premium menus and elegant service for meetings, launches, conferences, and executive gatherings." },
+      { n: "02", t: "Event Styling", d: "Sophisticated setups with refined decor, lighting, floral details, and a luxury visual identity." },
+      { n: "03", t: "Hospitality Teams", d: "Professional staff trained to deliver smooth service, guest comfort, and premium etiquette." },
+      { n: "04", t: "Turnkey Support", d: "From consultation to execution, every detail is managed with clarity, precision, and care." },
+    ],
+  },
   showcase: {
-    sectionLabel: "[ 07 ] Showcase",
+    sectionLabel: "[ 08 ] Showcase",
     title: "Sectors, in motion.",
     cards: [
       { title: "Luxury Vehicles", tag: "Showroom" },
       { title: "V-LUX Accessories", tag: "Customization" },
       { title: "Baddelha", tag: "Trade-In" },
       { title: "Swap Car", tag: "Mobility" },
-      { title: "Vision 2030", tag: "Alignment" },
       { title: "Luxury Vehicles", tag: "Flagship" },
     ],
   },
+  locationsPage: {
+    sectionLabel: "[ 01 ] Locations",
+    eyebrow: "Riyadh Network",
+    title: "Our Locations",
+    subtitle: "Connecting our automotive network across Riyadh.",
+    mapTitle: "A premium route through the capital.",
+    description:
+      "Explore Luxury Holding's presence in Riyadh.",
+    openMapsLabel: "Open in Google Maps",
+    cityLabel: "City",
+    areaLabel: "Area",
+    routeLabel: "Route Order",
+    ctaLabel: "Contact The Team",
+  },
   testimonials: {
-    sectionLabel: "[ 08 ] Clients",
+    sectionLabel: "[ 09 ] Clients",
     title: "Trusted across the Kingdom.",
     items: [
       {
@@ -183,7 +209,7 @@ export const en = {
     ],
   },
   contact: {
-    sectionLabel: "[ 09 ] Get in touch",
+    sectionLabel: "[ 10 ] Get in touch",
     title: "Let's build the future.",
     description: "For partnerships, press, or consultations, our Riyadh team responds within one business day.",
     companyImageAlt: "",

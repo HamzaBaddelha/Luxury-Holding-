@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { LenisProvider } from "@/components/providers/LenisProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -17,7 +18,20 @@ import { CustomCursor } from "@/components/motion/CustomCursor";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
 
 const Index = () => {
+  const location = useLocation();
   const [, setReady] = useState(false);
+
+  useEffect(() => {
+    if (!location.hash) return;
+
+    const id = location.hash.slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, [location.hash]);
 
   return (
     <LenisProvider>
@@ -33,6 +47,7 @@ const Index = () => {
         <LuxuryVehiclesSection />
         <VLuxSection />
         <BaddelhaSection />
+        <BaddelhaSection sectionKey="materaEvents" />
         <HorizontalShowcaseSection />
         <TestimonialsSection />
         <ContactSection />

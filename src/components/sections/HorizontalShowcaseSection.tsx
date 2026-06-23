@@ -7,7 +7,7 @@ import { images } from "@/data/landing";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const cardImages = [images.lux, images.vlux, images.bad, images.swap, images.showcaseVision, images.showcaseLuxury];
+const cardImages = [images.lux, images.vlux, images.bad, images.swap, images.showcaseLuxury];
 
 export const HorizontalShowcaseSection = () => {
   const root = useRef<HTMLElement>(null);
