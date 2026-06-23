@@ -56,7 +56,7 @@ const routePath = "M260 406 C 330 382 410 286 480 238 S 660 286 740 350";
 
 export const LocationsMap = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const mapRef = useRef<HTMLDivElement>(null);
+  const mapStageRef = useRef<HTMLDivElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const glowPathRef = useRef<SVGPathElement>(null);
   const pinRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -67,13 +67,13 @@ export const LocationsMap = () => {
   useGSAP(
     () => {
       const section = sectionRef.current;
-      const map = mapRef.current;
+      const mapStage = mapStageRef.current;
       const path = pathRef.current;
       const glowPath = glowPathRef.current;
       const pins = pinRefs.current.filter(Boolean) as HTMLDivElement[];
       const cards = cardRefs.current.filter(Boolean) as HTMLElement[];
 
-      if (!section || !map || !path || !glowPath || !pins.length || !cards.length) return;
+      if (!section || !mapStage || !path || !glowPath || !pins.length || !cards.length) return;
 
       const length = path.getTotalLength();
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -103,14 +103,31 @@ export const LocationsMap = () => {
 
       const mm = gsap.matchMedia();
 
-      const createTimeline = (scrub: number, pinMap: boolean, endValue: string) => {
+      cards.forEach((card) => {
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top 88%",
+          once: true,
+          onEnter: () => {
+            gsap.to(card, {
+              autoAlpha: 1,
+              y: 0,
+              filter: "blur(0px)",
+              duration: 0.7,
+              ease: "power3.out",
+            });
+          },
+        });
+      });
+
+      const createTimeline = (scrub: number, endValue: string) => {
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
             end: endValue,
             scrub,
-            pin: pinMap ? map : false,
+            pin: mapStage,
             anticipatePin: 1,
             invalidateOnRefresh: true,
           },
@@ -130,27 +147,15 @@ export const LocationsMap = () => {
             },
             position
           );
-
-          timeline.to(
-            cards[index],
-            {
-              autoAlpha: 1,
-              y: 0,
-              filter: "blur(0px)",
-              duration: 0.18,
-              ease: "power3.out",
-            },
-            position + 0.03
-          );
         });
       };
 
       mm.add("(min-width: 1024px)", () => {
-        createTimeline(1.2, true, "+=2200");
+        createTimeline(1.2, "+=2200");
       });
 
       mm.add("(max-width: 1023px)", () => {
-        createTimeline(0.6, false, "bottom bottom");
+        createTimeline(0.7, "+=950");
       });
 
       ScrollTrigger.refresh();
@@ -171,9 +176,10 @@ export const LocationsMap = () => {
       <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:48px_48px]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(225,29,46,0.18),transparent_30%),radial-gradient(circle_at_bottom,rgba(255,255,255,0.06),transparent_35%)]" />
 
-      <div ref={mapRef} className="relative flex min-h-screen items-start py-14 md:items-center md:py-10">
+      <div className="relative flex min-h-screen items-start py-14 md:items-center md:py-10">
         <div className="relative z-10 mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-12">
-          <div className="relative mx-auto flex max-w-[1260px] flex-col gap-8 md:gap-10">
+          <div className="relative mx-auto max-w-[1260px]">
+            <div ref={mapStageRef} className="relative flex flex-col gap-8 md:gap-10">
             <div className="max-w-2xl" dir={isArabic ? "rtl" : "ltr"}>
               <div className="font-mono-luxe text-[#e11d2e]">{page.routeLabel}</div>
               <h2 id="locations-map-title" className="mt-4 font-display text-4xl leading-[0.95] text-white md:text-6xl">
@@ -266,8 +272,9 @@ export const LocationsMap = () => {
                 ))}
               </div>
             </div>
+            </div>
 
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+            <div className="mt-10 grid grid-cols-1 gap-4 md:mt-14 md:grid-cols-3 md:gap-5">
               {locations.map((location, index) => (
                 <article
                   key={location.id}
