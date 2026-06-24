@@ -56,7 +56,20 @@ export const CompaniesStackSection = () => {
             style={{ zIndex: i + 1 }}
           >
             <div className="relative h-full w-full overflow-hidden">
-              <img src={companyImages[i]} alt={c.name} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              {c.id === "01" ? (
+                <video
+                  src="/images/JAECOO-video.mp4"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label={c.name}
+                />
+              ) : (
+                <img src={companyImages[i]} alt={c.name} className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-luxe-bg via-luxe-bg/60 to-luxe-bg/40" />
               <div className="absolute inset-0 bg-gradient-to-r from-luxe-bg/70 to-transparent" />
 
