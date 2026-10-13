@@ -4,7 +4,7 @@ export const BrandLogo = ({ className, decorative = false }: { className?: strin
   const { content } = useLocale();
 
   return <img
-    src="/images/Refined%20Arabic%20luxury%20logo%20update.png"
+    src="/images/luxury-vehicles-group-logo.png"
     alt={decorative ? "" : content.nav.brandName}
     className={className}
   />;

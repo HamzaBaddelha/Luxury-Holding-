@@ -21,7 +21,7 @@ type LocationItem = {
 const locations: LocationItem[] = [
   {
     id: 1,
-    name: "Luxury Holding - Khurais Road",
+    name: "Luxury Vehicles Group - Khurais Road",
     city: "Riyadh",
     area: "Khurais Road",
     description: "Main automotive location serving customers across Riyadh.",
@@ -31,7 +31,7 @@ const locations: LocationItem[] = [
   },
   {
     id: 2,
-    name: "Luxury Holding - Al Kairouan",
+    name: "Luxury Vehicles Group - Al Kairouan",
     city: "Riyadh",
     area: "Al Kairouan",
     description: "Premium branch supporting the company's growing automotive network.",
@@ -41,7 +41,7 @@ const locations: LocationItem[] = [
   },
   {
     id: 3,
-    name: "Luxury Holding - Al Qadisiyah",
+    name: "Luxury Vehicles Group - Al Qadisiyah",
     city: "Riyadh",
     area: "Al Qadisiyah",
     description: "Showroom location designed to serve customers in eastern Riyadh.",
@@ -51,7 +51,7 @@ const locations: LocationItem[] = [
   },
   {
     id: 4,
-    name: "Luxury Holding - Ash Shifa",
+    name: "Luxury Vehicles Group - Ash Shifa",
     city: "Riyadh",
     area: "Ash Shifa",
     description: "Southern Riyadh location extending the group's premium automotive presence.",

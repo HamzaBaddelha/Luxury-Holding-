@@ -4,7 +4,7 @@ export const en = {
     dir: "ltr",
   },
   nav: {
-    brandName: "Luxury Holding",
+    brandName: "Luxury Vehicles Group",
     links: [
       { label: "Group", href: "#about" },
       { label: "Vision", href: "#vision" },
@@ -22,18 +22,18 @@ export const en = {
     },
   },
   hero: {
-    imageAlt: "Riyadh skyline - Luxury Holding",
-    eyebrow: "Luxury Holding - Riyadh, Saudi Arabia",
+    imageAlt: "Riyadh skyline - Luxury Vehicles Group",
+    eyebrow: "Luxury Vehicles Group - Riyadh, Saudi Arabia",
     title: "Building excellence across industries.",
     description:
-      "Luxury Holding brings together a diverse portfolio of companies across multiple sectors, united by a shared commitment to quality, innovation, and exceptional customer experiences. Guided by Saudi Vision 2030, we invest in businesses that elevate service standards, create long-term value, and shape a more ambitious future for the Kingdom.",
+      "Luxury Vehicles Group brings together a diverse portfolio of companies across multiple sectors, united by a shared commitment to quality, innovation, and exceptional customer experiences. Guided by Saudi Vision 2030, we invest in businesses that elevate service standards, create long-term value, and shape a more ambitious future for the Kingdom.",
     primaryCta: "Explore the Group",
     secondaryCta: "Our Companies",
     scrollLabel: "Scroll",
   },
   about: {
     sectionLabel: "[ 01 ] The Group",
-    title: "Luxury Holding.",
+    title: "Luxury Vehicles Group.",
     description:
       "Five companies across complementary sectors, united by a single ambition contributing to Saudi Arabia's Vision 2030 through innovation, excellence, and uncompromising service quality.",
   },
@@ -124,7 +124,7 @@ export const en = {
     exploreBrand: "Explore {brand}",
     backToCollection: "Back to the collection",
     modelEnquiry: "Enquire About This Model",
-    pageTitleSuffix: "Luxury Vehicles Collection | Luxury Holding",
+    pageTitleSuffix: "Luxury Vehicles Collection | Luxury Vehicles Group",
   },
   baddelha: {
     sectionLabel: "[ 07 ] Matera",
@@ -170,7 +170,7 @@ export const en = {
     subtitle: "Connecting our automotive network across Riyadh.",
     mapTitle: "A premium route through the capital.",
     description:
-      "Explore Luxury Holding's presence in Riyadh.",
+      "Explore Luxury Vehicles Group's presence in Riyadh.",
     openMapsLabel: "Open in Google Maps",
     cityLabel: "City",
     areaLabel: "Area",
@@ -254,7 +254,7 @@ export const en = {
       { title: "Group", links: ["About", "Vision 2030", "Careers", "Press"] },
       { title: "Contact", links: ["Riyadh, Saudi Arabia", "hello@luxuryholding.sa", "+966 11 000 0000"] },
     ],
-    copyright: "© 2026 Luxury Holding",
+    copyright: "© 2026 Luxury Vehicles Group",
     tagline: "Aligned with Vision 2030",
   },
   notFound: {
