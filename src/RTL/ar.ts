@@ -6,7 +6,7 @@ export const ar: SiteCopy = {
     dir: "rtl",
   },
   nav: {
-    brandName: "Luxury Holding",
+    brandName: "مجموعة العربات الفاخرة",
     links: [
       { label: "المجموعة", href: "#about" },
       { label: "الرؤية", href: "#vision" },
@@ -24,18 +24,18 @@ export const ar: SiteCopy = {
     },
   },
   hero: {
-    imageAlt: "أفق الرياض - Luxury Holding",
-    eyebrow: "Luxury Holding - الرياض، المملكة العربية السعودية",
+    imageAlt: "أفق الرياض - مجموعة العربات الفاخرة",
+    eyebrow: "مجموعة العربات الفاخرة - الرياض، المملكة العربية السعودية",
     title: "نبني التميّز عبر قطاعات متعددة.",
     description:
-      "تجمع الفاخرة القابضة محفظة متنوعة من الشركات في قطاعات مختلفة، يجمعها التزام واحد بالجودة والابتكار وتقديم تجارب استثنائية للعملاء. وانطلاقاً من رؤية المملكة 2030، نستثمر في كيانات ترتقي بمعايير الخدمات، وتخلق قيمة مستدامة، وتساهم في صناعة مستقبل أكثر طموحاً للمملكة.",
+      "تجمع مجموعة العربات الفاخرة محفظة متنوعة من الشركات في قطاعات مختلفة، يجمعها التزام واحد بالجودة والابتكار وتقديم تجارب استثنائية للعملاء. وانطلاقاً من رؤية المملكة 2030، نستثمر في كيانات ترتقي بمعايير الخدمات، وتخلق قيمة مستدامة، وتساهم في صناعة مستقبل أكثر طموحاً للمملكة.",
     primaryCta: "استكشف المجموعة",
     secondaryCta: "شركاتنا",
     scrollLabel: "مرر",
   },
   about: {
     sectionLabel: "[ 01 ] المجموعة",
-    title: "القابضة الفاخرة",
+    title: "مجموعة العربات الفاخرة",
     description:
       "خمس شركات في قطاعات متكاملة، يجمعها طموح واحد الإسهام في تحقيق رؤية السعودية 2030 من خلال الابتكار والتميّز وجودة الخدمة بلا تنازل.",
   },
@@ -113,8 +113,23 @@ export const ar: SiteCopy = {
     description:
       "تحوّل V-LUX كل مركبة إلى تعبير راقٍ عن الأناقة والراحة والهوية الخاصة. ومن خلال الإكسسوارات الفاخرة والتخصيص الاحترافي والتركيب الدقيق، نرتقي بتجربة التملك بتفاصيل تعكس الفخامة والابتكار والذوق الشخصي.",
   },
+  vehicleCollection: {
+    eyebrow: "المجموعة",
+    title: "مجموعة العربات الفاخرة",
+    introduction: "اكتشف جايكو وأومودا وآي كار وهونشي ودونغ فينغ وإم هيرو لدى العربات الفاخرة، واستمتع بتصاميم متفرّدة وتجربة اختيار سيارة تراعي تطلعاتك وتفاصيل أسلوب حياتك.",
+    chooseBrand: "اختر علامة تجارية",
+    chooseModel: "استكشف النماذج",
+    demonstration: "نموذج توضيحي",
+    demoNote: "نماذج توضيحية — التشكيلة قيد التأكيد.",
+    imageComingSoon: "صورة السيارة قريباً",
+    enquire: "استفسر عن هذه العلامة",
+    exploreBrand: "اكتشف {brand}",
+    backToCollection: "العودة إلى المجموعة",
+    modelEnquiry: "استفسر عن هذا الطراز",
+    pageTitleSuffix: "مجموعة العربات الفاخرة",
+  },
   baddelha: {
-    sectionLabel: "[ 06 ] Matera",
+    sectionLabel: "[ 07 ] Matera",
     imageAlt: "مطعم Matera",
     title: "مذاق اللحظة... بأجمل تفاصيلها",
     description:
@@ -127,7 +142,7 @@ export const ar: SiteCopy = {
     ],
   },
   materaEvents: {
-    sectionLabel: "[ 07 ] Matera Events",
+    sectionLabel: "[ 08 ] Matera Events",
     imageAlt: "Matera Events",
     title: "فعاليات تُصمَّم بذوق فاخر",
     description:
@@ -140,7 +155,7 @@ export const ar: SiteCopy = {
     ],
   },
   showcase: {
-    sectionLabel: "[ 08 ] المعرض",
+    sectionLabel: "[ 09 ] المعرض",
     title: "قطاعاتنا",
     cards: [
       { title: "العربات الفاخــرة", tag: "المعرض" },
@@ -157,7 +172,7 @@ export const ar: SiteCopy = {
     subtitle: "نربط شبكتنا المتخصصة  عبر الرياض.",
     mapTitle: "مسار راقٍ عبر العاصمة.",
     description:
-      "استكشف حضور Luxury Holding ",
+      "استكشف حضور مجموعة العربات الفاخرة ",
     openMapsLabel: "افتح في خرائط جوجل",
     cityLabel: "المدينة",
     areaLabel: "المنطقة",
@@ -165,7 +180,7 @@ export const ar: SiteCopy = {
     ctaLabel: "تواصل مع الفريق",
   },
   testimonials: {
-    sectionLabel: "[ 09 ] العملاء",
+    sectionLabel: "[ 10 ] العملاء",
     title: "ثقة تمتد عبر المملكة.",
     items: [
       {
@@ -211,7 +226,7 @@ export const ar: SiteCopy = {
     ],
   },
   contact: {
-    sectionLabel: "[ 10 ] تواصل معنا",
+    sectionLabel: "[ 11 ] تواصل معنا",
     title: "لنبنِ مستقبل الخدمات .",
     description: "للشراكات أو الإعلام أو الاستشارات، يرد فريقنا في الرياض خلال يوم عمل واحد.",
     companyImageAlt: "",
@@ -235,13 +250,13 @@ export const ar: SiteCopy = {
     },
   },
   footer: {
-    description: "شركة سعودية قابضة فاخرة تبني مستقبل خدمات السيارات.",
+    description: "مجموعة العربات الفاخرة، مجموعة سعودية تبني مستقبل خدمات السيارات.",
     columns: [
       { title: "الشركات", links: ["العربات الفاخــرة", "V-LUX Accessories", "بدلــها", "Swap Car", "مــولها"] },
       { title: "المجموعة", links: ["عن المجموعة", "رؤية 2030", "الوظائف", "الأخبار"] },
       { title: "التواصل", links: ["الرياض، المملكة العربية السعودية", "hello@luxuryholding.sa", "+966 11 000 0000"] },
     ],
-    copyright: "© 2026 Luxury Holding",
+    copyright: "© 2026 مجموعة العربات الفاخرة",
     tagline: "منسجمون مع رؤية 2030",
   },
   notFound: {

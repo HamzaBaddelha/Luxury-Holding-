@@ -1,20 +1,17 @@
 import { useLocale } from "@/RTL/LocaleProvider";
+import { BrandLogo } from "./BrandLogo";
 
 export const Footer = () => {
   const { content } = useLocale();
 
   return (
     <footer className="relative bg-luxe-bg border-t border-luxe-fg/10 overflow-hidden">
-      <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 font-display text-luxe-fg/[0.04] text-[28vw] leading-none select-none pointer-events-none">
-        LH
+      <div aria-hidden="true" className="absolute -bottom-32 left-1/2 w-[60vw] -translate-x-1/2 opacity-[0.04] select-none pointer-events-none">
+        <BrandLogo decorative className="h-auto w-full" />
       </div>
       <div className="relative max-w-[1440px] mx-auto px-6 md:px-12 py-20 grid md:grid-cols-4 gap-12">
         <div className="md:col-span-1">
-          <img
-            src="/images/3d-logo.png"
-            alt={content.nav.brandName}
-            className="h-20 md:h-28 w-auto"
-          />
+          <BrandLogo className="h-auto w-64 max-w-full object-contain" />
           <p className="mt-6 text-luxe-silver/70 text-sm leading-relaxed max-w-xs">
             {content.footer.description}
           </p>

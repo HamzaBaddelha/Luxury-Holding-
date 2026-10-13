@@ -5,6 +5,7 @@ export const images = {
   hero: "/images/vision-2030.png",
   lux: "/images/luxury-vec.png",
   vlux: `${base}/v-lux-accessories.jpg`,
+  vluxCard: "/images/V-LUX1.jpeg",
   vluxLogo: "/images/v-lux.png",
   bad: `${base}/baddelha-tradein.jpg`,
   baddelhaLogo: "/images/baddelha-logo.png",

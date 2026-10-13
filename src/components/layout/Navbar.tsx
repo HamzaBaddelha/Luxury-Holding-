@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useLocale } from "@/RTL/LocaleProvider";
 import { MagneticButton } from "@/components/motion/MagneticButton";
+import { BrandLogo } from "./BrandLogo";
 
 export const Navbar = () => {
   const nav = useRef<HTMLDivElement>(null);
@@ -54,11 +55,7 @@ export const Navbar = () => {
       >
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
-            <img
-              src="/images/3d-logo.png"
-              alt={content.nav.brandName}
-              className="h-20 md:h-24 w-auto"
-            />
+            <BrandLogo className="h-16 md:h-[72px] w-auto object-contain" />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-10">
@@ -115,7 +112,9 @@ export const Navbar = () => {
       >
         <div className="h-full flex flex-col p-8">
           <div className="flex justify-between items-center">
-            <span className="font-display text-2xl">L<span className="text-luxe-accent">H</span></span>
+            <Link to="/" onClick={() => setOpen(false)}>
+              <BrandLogo className="h-20 w-auto object-contain" />
+            </Link>
             <button onClick={() => setOpen(false)} className="text-luxe-fg p-2" aria-label={content.nav.closeMenuLabel}><X className="w-6 h-6" /></button>
           </div>
           <nav className="flex-1 flex flex-col justify-center gap-6">

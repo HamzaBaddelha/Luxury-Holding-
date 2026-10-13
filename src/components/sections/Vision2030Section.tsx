@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export const Vision2030Section = () => {
   const root = useRef<HTMLElement>(null);
-  const { content } = useLocale();
+  const { content, isArabic } = useLocale();
 
   const visionVideo =
     "/images/From Klickpin.com- Try Elegant crochet project inspiration that help you create a beautiful result without overspending for your next Pinterest sa.mp4";
@@ -103,7 +103,8 @@ export const Vision2030Section = () => {
             className="mx-auto h-[28vw] w-full max-w-[92vw] opacity-20 md:h-[20vw]"
             fontSize="30vw"
             fontWeight={400}
-            fontFamily="Cormorant Garamond, serif"
+            fontFamily={isArabic ? "Shubbak, sans-serif" : "Cormorant Garamond, serif"}
+            fontUrl={isArabic ? "/Shubak/Shubbak-Regular.otf" : undefined}
           >
             {content.vision.backgroundLabel}
           </VideoText>
@@ -121,7 +122,8 @@ export const Vision2030Section = () => {
               className="v2030-title inline-block h-[22vw] w-[96vw] md:h-[10vw] md:w-[72vw] lg:h-[9vw] lg:w-[64vw] xl:h-[8vw] xl:w-[58vw]"
               fontSize="9vw"
               fontWeight={500}
-              fontFamily="Cormorant Garamond, serif"
+              fontFamily={isArabic ? "Shubbak, sans-serif" : "Cormorant Garamond, serif"}
+              fontUrl={isArabic ? "/Shubak/Shubbak-Medium.otf" : undefined}
             >
               {titleText}
             </VideoText>

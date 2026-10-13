@@ -16,6 +16,7 @@ type VideoTextProps = {
   textAnchor?: string;
   dominantBaseline?: string;
   fontFamily?: string;
+  fontUrl?: string;
   as?: VideoTextTag;
 };
 
@@ -32,6 +33,7 @@ export function VideoText({
   textAnchor = "middle",
   dominantBaseline = "middle",
   fontFamily = "sans-serif",
+  fontUrl,
   as = "div",
 }: VideoTextProps) {
   const [svgMask, setSvgMask] = useState("");
@@ -39,8 +41,13 @@ export function VideoText({
   const content = useMemo(() => Children.toArray(children).join(""), [children]);
 
   useEffect(() => {
+    let cancelled = false;
+    const controller = new AbortController();
     const responsiveFontSize = typeof fontSize === "number" ? `${fontSize}vw` : fontSize;
-    const newSvgMask = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+    const updateMask = (embeddedFont = "") => {
+      if (cancelled) return;
+      const newSvgMask = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      ${embeddedFont}
       <text x="50%" y="50%"
             font-size="${responsiveFontSize}"
             font-weight="${fontWeight}"
@@ -50,8 +57,25 @@ export function VideoText({
             fill="black">${content}</text>
     </svg>`;
 
-    setSvgMask(newSvgMask);
-  }, [content, fontSize, fontWeight, textAnchor, dominantBaseline, fontFamily]);
+      setSvgMask(newSvgMask);
+    };
+
+    updateMask();
+    if (fontUrl) {
+      // SVG image masks cannot inherit the page's @font-face; embed the local font.
+      void fetch(fontUrl, { signal: controller.signal })
+        .then((response) => {
+          if (!response.ok) throw new Error("Font unavailable");
+          return response.arrayBuffer();
+        })
+        .then((buffer) => {
+          const encoded = btoa(Array.from(new Uint8Array(buffer), (byte) => String.fromCharCode(byte)).join(""));
+          updateMask(`<style>@font-face { font-family: '${fontFamily.split(",")[0].trim()}'; src: url(data:font/otf;base64,${encoded}) format('opentype'); font-weight: ${fontWeight}; }</style>`);
+        })
+        .catch(() => { /* Retain the readable system-font mask if loading fails. */ });
+    }
+    return () => { cancelled = true; controller.abort(); };
+  }, [content, fontSize, fontWeight, textAnchor, dominantBaseline, fontFamily, fontUrl]);
 
   const Component = as;
 

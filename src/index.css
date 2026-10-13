@@ -5,19 +5,65 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Al Awwal Web";
-  src: url("/font-arab/WOFF-2-TT/Al-Awwal Web/Al-AwwalWeb-Regular.woff2") format("woff2"),
-       url("/font-arab/WOFF-TT/Al-Awwal Web/Al-AwwalWeb-Regular.woff") format("woff");
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Al Awwal Web";
-  src: url("/font-arab/WOFF-2-TT/Al-Awwal Web/Al-AwwalWeb-Bold.woff2") format("woff2"),
-       url("/font-arab/WOFF-TT/Al-Awwal Web/Al-AwwalWeb-Bold.woff") format("woff");
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-Bold.otf") format("opentype");
   font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-ExtraLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-SemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Shubbak";
+  src: url("/Shubak/Shubbak-Black.otf") format("opentype");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -78,8 +124,9 @@
     overflow-x: hidden;
   }
 
-  html[dir="rtl"] {
-    font-family: "Al Awwal Web", system-ui, sans-serif;
+  html[dir="rtl"],
+  html[dir="rtl"] .font-sans {
+    font-family: "Shubbak", system-ui, sans-serif;
   }
 
   html[dir="rtl"] body {
@@ -112,14 +159,14 @@
     font-size: 1.5rem;
   }
 
-  html[dir="rtl"] main .font-display {
-    font-family: "Al Awwal Web", serif;
+  html[dir="rtl"] .font-display {
+    font-family: "Shubbak", sans-serif;
     font-weight: 700;
     letter-spacing: 0;
   }
 
-  html[dir="rtl"] main .font-mono-luxe {
-    font-family: "Al Awwal Web", sans-serif;
+  html[dir="rtl"] .font-mono-luxe {
+    font-family: "Shubbak", sans-serif;
     font-size: 13px;
     letter-spacing: 0.04em;
     text-transform: none;

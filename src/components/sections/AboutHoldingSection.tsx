@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useLocale } from "@/RTL/LocaleProvider";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export const AboutHoldingSection = () => {
   const root = useRef<HTMLElement>(null);
@@ -32,8 +33,8 @@ export const AboutHoldingSection = () => {
           </div>
         </div>
         <div className="md:col-span-3 flex md:justify-end items-start">
-          <div className="about-mono font-display text-[18vw] md:text-[12vw] leading-none text-luxe-bg/10">
-            LH
+          <div className="about-mono w-full max-w-72">
+            <BrandLogo className="h-auto w-full object-contain" />
           </div>
         </div>
       </div>

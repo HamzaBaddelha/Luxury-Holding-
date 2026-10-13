@@ -35,7 +35,7 @@ export const en = {
     sectionLabel: "[ 01 ] The Group",
     title: "Luxury Holding.",
     description:
-      "Five companies across complementary sectors, united by a single ambition: contributing to Saudi Arabia's Vision 2030 through innovation, excellence, and uncompromising service quality.",
+      "Five companies across complementary sectors, united by a single ambition contributing to Saudi Arabia's Vision 2030 through innovation, excellence, and uncompromising service quality.",
   },
   vision: {
     sectionLabel: "[ 02 ] Aligned with the Kingdom",
@@ -111,8 +111,23 @@ export const en = {
     description:
       "V-LUX transforms every vehicle into a refined statement of style, comfort, and individuality. Through premium accessories, expert customization, and precise installation, we elevate the ownership experience with details that reflect true luxury, innovation, and personal taste.",
   },
+  vehicleCollection: {
+    eyebrow: "The Collection",
+    title: "Luxury Vehicles Collection",
+    introduction: "Explore JAECOO, OMODA, ICAUR, HONGQI, DONGFENG and MHERO through Luxury Vehicles. Discover distinctive design and a more personal approach to choosing your next car.",
+    chooseBrand: "Choose a brand",
+    chooseModel: "Explore the models",
+    demonstration: "Demonstration model",
+    demoNote: "Illustrative entries — lineup to be confirmed.",
+    imageComingSoon: "Vehicle image coming soon",
+    enquire: "Enquire About This Brand",
+    exploreBrand: "Explore {brand}",
+    backToCollection: "Back to the collection",
+    modelEnquiry: "Enquire About This Model",
+    pageTitleSuffix: "Luxury Vehicles Collection | Luxury Holding",
+  },
   baddelha: {
-    sectionLabel: "[ 06 ] Matera",
+    sectionLabel: "[ 07 ] Matera",
     imageAlt: "Matera restaurant",
     title: "Taste the moment, beautifully",
     description:
@@ -125,7 +140,7 @@ export const en = {
     ],
   },
   materaEvents: {
-    sectionLabel: "[ 07 ] Matera Events",
+    sectionLabel: "[ 08 ] Matera Events",
     imageAlt: "Matera Events",
     title: "Events, beautifully curated.",
     description:
@@ -138,7 +153,7 @@ export const en = {
     ],
   },
   showcase: {
-    sectionLabel: "[ 08 ] Showcase",
+    sectionLabel: "[ 09 ] Showcase",
     title: "Sectors, in motion.",
     cards: [
       { title: "Luxury Vehicles", tag: "Showroom" },
@@ -163,7 +178,7 @@ export const en = {
     ctaLabel: "Contact The Team",
   },
   testimonials: {
-    sectionLabel: "[ 09 ] Clients",
+    sectionLabel: "[ 10 ] Clients",
     title: "Trusted across the Kingdom.",
     items: [
       {
@@ -209,7 +224,7 @@ export const en = {
     ],
   },
   contact: {
-    sectionLabel: "[ 10 ] Get in touch",
+    sectionLabel: "[ 11 ] Get in touch",
     title: "Let's build the future.",
     description: "For partnerships, press, or consultations, our Riyadh team responds within one business day.",
     companyImageAlt: "",

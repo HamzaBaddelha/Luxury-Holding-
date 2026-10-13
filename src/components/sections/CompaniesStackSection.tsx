@@ -8,7 +8,7 @@ import { ArrowUpRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const companyImages = [images.lux, images.vlux, images.bad, images.swap, images.mawlha];
+const companyImages = [images.lux, images.vluxCard, images.bad, images.swap, images.mawlha];
 const companyLogos: Record<string, string | undefined> = {
   "02": images.vluxLogo,
   "03": images.baddelhaLogo,

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { BrandLogo } from "@/components/layout/BrandLogo";
 
 export const Preloader = ({ onDone }: { onDone?: () => void }) => {
   const root = useRef<HTMLDivElement>(null);
@@ -36,11 +37,7 @@ export const Preloader = ({ onDone }: { onDone?: () => void }) => {
   return (
     <div ref={root} className="fixed inset-0 z-[200] bg-luxe-bg flex flex-col items-center justify-center">
       <div ref={monoRef}>
-        <img
-          src="/images/Holding-logo.png"
-          alt="Holding logo"
-          className="w-40 md:w-56 h-auto"
-        />
+        <BrandLogo className="w-72 md:w-96 max-w-[85vw] h-auto" />
       </div>
       <div className="mt-12 w-48 h-px bg-luxe-fg/10 overflow-hidden">
         <div ref={barRef} className="h-px bg-luxe-accent origin-left" style={{ transform: "scaleX(0)" }} />
